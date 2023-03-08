@@ -3,10 +3,11 @@
 
 using namespace std;
 
-HardwareSerial Serial("serial_in.txt","serial_out.txt");
+//HardwareSerial Serial("serial_in.txt","serial_out.txt");
 HardwareSerial Serial1("serial1_in.txt","serial1_out.txt");
 HardwareSerial Serial2("serial2_in.txt","serial2_out.txt");
 HardwareSerial Serial3("serial3_in.txt","serial3_out.txt");
+
 HardwareSerial::HardwareSerial(String inputfileName,String outputfileName)
 {
 	myInputfileName=inputfileName;

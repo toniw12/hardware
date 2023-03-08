@@ -1,5 +1,5 @@
 /*
-  HardwareSerial.h - Hardware serial library for Wiring
+  TerminalSerial.h - Terminal serial library for Wiring
   Copyright (c) 2006 Nicholas Zambetti.  All right reserved.
 
   This library is free software; you can redistribute it and/or
@@ -21,8 +21,8 @@
   Modified 3 December 2013 by Matthijs Kooijman
 */
 
-#ifndef HardwareSerial_h
-#define HardwareSerial_h
+#ifndef TerminalSerial_h
+#define TerminalSerial_h
 
 #include <inttypes.h>
 #include <iostream>
@@ -82,7 +82,7 @@ typedef uint8_t rx_buffer_index_t;
 #define SERIAL_7O2 0x3C
 #define SERIAL_8O2 0x3E
 
-class HardwareSerial : public Stream
+class TerminalSerial : public Stream
 {
 		private:
 		String myInputfileName;
@@ -90,7 +90,7 @@ class HardwareSerial : public Stream
 		std::ofstream myOutfile;
 		std::fstream  myInfile;
   public:
-    HardwareSerial(String inputfileName,String outputfileName);
+    TerminalSerial();
     void begin(unsigned long baud) { begin(baud, SERIAL_8N1); }
     void begin(unsigned long, uint8_t);
     void end();
@@ -107,11 +107,9 @@ class HardwareSerial : public Stream
     inline size_t write(int n) { return write((uint8_t)n); }
     using Print::write; // pull in write(str) and write(buf, size) from Print
     operator bool() { return true; }
+
 };
 
-  //extern HardwareSerial Serial;
-  extern HardwareSerial Serial1;
-  extern HardwareSerial Serial2;
-  extern HardwareSerial Serial3;
+  extern TerminalSerial Serial;
 
 #endif
